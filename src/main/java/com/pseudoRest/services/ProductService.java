@@ -1,8 +1,8 @@
 package com.pseudoRest.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pseudoRest.domain.Product;
-import jdk.nashorn.internal.ir.ObjectNode;
 import org.springframework.stereotype.Service;
 
 @Service
