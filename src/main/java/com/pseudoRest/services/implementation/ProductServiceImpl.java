@@ -102,18 +102,47 @@ public class ProductServiceImpl implements ProductService{
         return responseNode;
     }
 
+    /**
+     * Getter for finding an instance of product
+     *
+     * @param id
+     * @return
+     */
     public Product getProduct(Long id){
         return productRepository.findOne(id);
     }
 
-    public Product updateProduct(Product product){
+    /**
+     * This method updates product with price and currency and returns product after save
+     *
+     * @param product
+     * @param jsonNode
+     * @return
+     */
+    public Product updateProduct(Product product, JsonNode jsonNode){
+
+        final double priceValue = jsonNode.findPath("priceValue").asDouble(product.getPriceValue());
+        final String currency = jsonNode.findPath("currency").asText(product.getCurrency());
+        product.setPriceValue((float) priceValue);
+        product.setCurrency(currency);
+
         return productRepository.save(product);
     }
 
+    /**
+     * Getter to return product repository
+     *
+     * @return
+     */
     public ProductRepository getProductRepository(){
         return productRepository;
     }
 
+    /**
+     * Setter to set product repository
+     *
+     * @param productRepository
+     */
     public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
