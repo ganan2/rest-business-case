@@ -72,7 +72,6 @@ public class ProductServiceImpl implements ProductService{
         strings.add("product 5");
 
         return strings.get((int) (Math.random() * strings.size()));
-
     }
 
     /**
@@ -120,12 +119,6 @@ public class ProductServiceImpl implements ProductService{
      * @return
      */
     public Product updateProduct(Product product, JsonNode jsonNode){
-
-        final double priceValue = jsonNode.findPath("priceValue").asDouble(product.getPriceValue());
-        final String currency = jsonNode.findPath("currency").asText(product.getCurrency());
-        product.setPriceValue((float) priceValue);
-        product.setCurrency(currency);
-
         return productRepository.save(product);
     }
 

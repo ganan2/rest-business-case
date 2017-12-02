@@ -11,6 +11,7 @@ public class ProductServiceConstants {
     /** The constant currency USD */
     public static final String currency = "USD";
 
+    /** The constant OBJECT_MAPPER */
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
 }

@@ -12,6 +12,10 @@ public interface ProductService {
 
     public String generateRandomProductName();
 
+    public Product getProduct(Long id);
+
+    public Product updateProduct(Product product, JsonNode jsonNode);
+
     public ObjectNode mergeProductInfo(Product product, JsonNode jsonNode);
 
 }
