@@ -22,6 +22,21 @@ public class ProductServiceImpl implements ProductService{
     private ProductRepository productRepository;
 
     /**
+     * This method returns merge of product name and info
+     *
+     * @param productid
+     * @return
+     */
+    @Override
+    public ObjectNode getProductInfo(Long productid) {
+
+        final Product product = this.getProduct(productid);
+        final JsonNode productInfo = this.getProductInfoFromExternalService(productid);
+
+        return this.mergeProductInfo(product, productInfo);
+    }
+
+    /**
      * The method posts Json objects with name and ID to HTTPBin and retrieves the same.
      *
      * DESCRIPTION: Testing an HTTP Library can become difficult sometimes. RequestBin is fantastic for testing POST

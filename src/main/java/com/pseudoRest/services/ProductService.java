@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ProductService {
 
+    public ObjectNode getProductInfo(Long productid);
+
     public JsonNode getProductInfoFromExternalService(Long productId);
 
     public String generateRandomProductName();

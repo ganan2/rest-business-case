@@ -1,6 +1,5 @@
 package com.pseudoRest.controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.pseudoRest.domain.Product;
 import com.pseudoRest.services.ProductService;
@@ -37,11 +36,7 @@ public class ProductController {
     @GetMapping(value = "/products/{id}", produces = "application/json")
     public Future<ObjectNode> getProduct(final @PathParam("id") Long productId){
 
-        return CompletableFuture.supplyAsync(() -> {
-                    final Product product = productService.getProduct(productId);
-                    final JsonNode productInfo = productService.getProductInfoFromExternalService(productId);
-                    return productService.mergeProductInfo(product, productInfo);
-        });
+        return CompletableFuture.supplyAsync(() -> productService.getProductInfo(productId));
     }
 
     /**
