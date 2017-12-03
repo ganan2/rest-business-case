@@ -24,6 +24,7 @@ public class PseudoRestApplication {
 		 * Note that certain resources such as static assets and view templates do not need to restart the application.
 		 *
 		 * https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
+		 * https://www.tutorialspoint.com/java/lang/system_setproperty.htm
 		 */
 		System.setProperty("spring.devtools.restart.enabled", "true");
 		System.setProperty("spring.devtools.restart.exclude", "static/**,public/**");
