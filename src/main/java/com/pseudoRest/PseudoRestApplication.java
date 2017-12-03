@@ -15,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class PseudoRestApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("spring.devtools.restart.enabled", "true");
+		System.setProperty("spring.devtools.restart.exclude", "static/**,public/**");
 		SpringApplication.run(PseudoRestApplication.class, args);
 	}
 }
